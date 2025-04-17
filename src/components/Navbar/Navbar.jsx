@@ -9,22 +9,22 @@ const Menu = [
         link: '#contact',
     },
     {
-        id:2,
-        name: 'Our service',
-        link: '#',
+        id: 2,
+        name: 'Our Service',
+        link: '#service',
     },
     {
-        id:3,
-        name: 'Our product',
-        link: '#',
+        id: 3,
+        name: 'Our carousel',
+        link: '#carousel',
     },
     {
-        id:4,
+        id: 4,
         name: 'About us',
         link: '#',
     },
     {
-        id:5,
+        id: 5,
         name: 'footer',
         link: '#footer',
     },
@@ -41,7 +41,7 @@ const Navbar = () => {
                     </div>
                     <div className='flex items-center gap-4'>
                         <div>
-                           {/*  <DarkMode /> */}
+                            {/*  <DarkMode /> */}
                         </div>
                         <ul className='flex gap-4 '>
                             {Menu.map((menu) => (
@@ -49,8 +49,8 @@ const Navbar = () => {
                                     <a href={menu.link} className='inline-block  py-4 px-4 hover:text-yellow-600'>
                                         {menu.name}
                                     </a>
-                            </li>    
-                           )) }
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>

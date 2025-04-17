@@ -4,7 +4,8 @@ import "aos/dist/aos.css";
 import HeroSection from "./components/Navbar/HeroSection";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
-
+import Dashing from "./components/Dashing/Dashing";
+import Caroussel from "./components/Caroussel.jsx/Caroussel";
 const App = () => {
   React.useEffect(() => {
     AOS.init({
@@ -20,6 +21,8 @@ const App = () => {
       <HeroSection />
       <Contact />
       <Footer />
+      <Dashing />
+      <Caroussel  />
     </div>
   )
 }
