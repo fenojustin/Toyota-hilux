@@ -1,7 +1,9 @@
 import React from "react";
-import Navabr from './components/Navbar/Navbar'
 import AOS from "aos";
 import "aos/dist/aos.css";
+import HeroSection from "./components/Navbar/HeroSection";
+import Contact from "./components/Contact/Contact";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   React.useEffect(() => {
@@ -14,8 +16,10 @@ const App = () => {
     AOS.refresh();
   }, []);
   return (
-    <div className="bg-yellow dark:bg-gray-900 dark:text-white duration-200 min-h-screen bg-gradient-to-br from-stone-950 ">
-      <Navabr />
+    <div >
+      <HeroSection />
+      <Contact />
+      <Footer />
     </div>
   )
 }
