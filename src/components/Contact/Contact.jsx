@@ -38,7 +38,7 @@ const Contact = () => {
                             deserts to icy mountains. We are ready to prepare the best for you.
                         </h3>
                     </div>
-                    <div>
+                    <div className='py-[125px]'>
                         <h1 className="text-2xl text-amber-600 uppercase font-bold">
                             With the right vehicle you
                         </h1>
@@ -48,7 +48,7 @@ const Contact = () => {
                         <h1 className="text-2xl text-amber-600 uppercase font-bold">
                             freedom where you want
                         </h1>
-                        <h3 className="text-white mt-2">
+                        <h3 className="text-white mt-2 ">
                             We provide offroad car to rent. If you want to explore the world,
                             get lost in nature, ride deep into the desert or just want to drive
                             like a maniac — then our offer is for you.
