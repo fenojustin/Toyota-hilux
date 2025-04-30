@@ -7,6 +7,7 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import Dashing from "./components/Dashing/Dashing";
 import Caroussel from "./components/Caroussel.jsx/Caroussel";
+import Voiture from "./components/voiture/Voiture";
 
 const App = () => {
   const footerRef = useRef(null);
@@ -38,12 +39,13 @@ const App = () => {
           onClick={scrollToFooter}
           className="bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-700 transition"
         >
-          ↓ Aller au footer
+          ↓ 
         </button>
       </div>
 
       {/* Footer avec la ref pour scroll */}
       <div ref={footerRef}>
+        <Voiture/>
         <Footer />
       </div>
     </div>

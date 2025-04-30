@@ -8,7 +8,7 @@ const Contact = () => {
             <div
                 data-aos="zoom-in"
                 className="container mx-auto py-16 px-4 lg:px-8 max-w-screen-xl grid grid-cols-1 lg:grid-cols-2 gap-10"
-                id="contact"
+                id="#"
             >
                 {/* Texte à gauche */}
                 <div className="flex flex-col justify-center space-y-6">

@@ -6,7 +6,7 @@ const Menu = [
     {
         id: 1,
         name: 'Contact us',
-        link: '#contact',
+        link: '#',
     },
     {
         id: 2,
@@ -21,19 +21,19 @@ const Menu = [
     {
         id: 4,
         name: 'About us',
-        link: '#',
+        link: '#footer',
     },
     {
         id: 5,
-        name: 'footer',
+        name: 'Footer',
         link: '#footer',
     },
 ]
 const Navbar = () => {
     return (
-        <div className='shadow  text-white py-5 flex flex-between dark:bg-gray-900 dark:text-white duration-100'>
+        <header className=' relative w-full shadow  text-white py-5 flex flex-between dark:bg-gray-900 dark:text-white duration-100'>
             {/* upper navbar */}
-            <div className='container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl'>
+            <div className='fixed top-0 w-full py-4  container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl'>
                 <div className='flex justify-between items-center'>
                     <div className=' text-white'>
                         <a href="#" className='flex items-center gap-2 text-2xl sm:text-3xl font-bold'> VENEGUO</a>
@@ -55,7 +55,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </header>
     )
 }
 export default Navbar
