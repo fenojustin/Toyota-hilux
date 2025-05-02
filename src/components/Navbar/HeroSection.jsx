@@ -4,7 +4,7 @@ import Navbar from './Navbar'
 
 const HeroSection = () => {
     return (
-        <div
+        <div data-aos="fade-up"
             className="bg-cover bg-center h-screen relative text-white"
             style={{
                 backgroundImage: `url('/images/222.png')`,
@@ -21,7 +21,7 @@ const HeroSection = () => {
             {/* Contenu principal */}
             <div className="relative z-10 flex flex-col justify-center h-full px-10 md:px-20">
                 <div className="max-w-3xl">
-                    <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+                    <h1 className="text-4xl md:text-5xl font-semibold leading-tight mb-6">
                         GET READY FOR AWESOME<br />ADVENTURE
                     </h1>
                     <p className="text-sm md:text-base mb-8">

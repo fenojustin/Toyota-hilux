@@ -26,7 +26,7 @@ const Contact = () => {
                     <img
                         src={carImage}
                         alt="Voiture"
-                        className="w-full max-w-[600px] h-auto object-cover rounded-xl shadow-lg"
+                        className="w-full max-w-[600px]  h-auto object-cover rounded-xl shadow-lg"
                     />
                 </div>
 

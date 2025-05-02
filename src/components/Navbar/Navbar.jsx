@@ -5,29 +5,20 @@ const Menu = [
 
     {
         id: 1,
-        name: 'Contact us',
+        name: 'CONTACT US',
         link: '#',
     },
     {
         id: 2,
-        name: 'Our Service',
+        name: 'OUR SERVICE',
         link: '#service',
     },
     {
         id: 3,
-        name: 'Our carousel',
+        name: 'OUR PRODUCT',
         link: '#carousel',
     },
-    {
-        id: 4,
-        name: 'About us',
-        link: '#footer',
-    },
-    {
-        id: 5,
-        name: 'Footer',
-        link: '#footer',
-    },
+  
 ]
 const Navbar = () => {
     return (
@@ -36,7 +27,7 @@ const Navbar = () => {
             <div className='fixed top-0 w-full py-4  container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl'>
                 <div className='flex justify-between items-center'>
                     <div className=' text-white'>
-                        <a href="#" className='flex items-center gap-2 text-2xl sm:text-3xl font-bold'> VENEGUO</a>
+                        <a href="#" className='flex items-center gap-2 text-2xl sm:text-3xl font-semibold'> VENEGUO</a>
 
                     </div>
                     <div className='flex items-center gap-4'>

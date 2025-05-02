@@ -8,6 +8,10 @@ import Footer from "./components/Footer/Footer";
 import Dashing from "./components/Dashing/Dashing";
 import Caroussel from "./components/Caroussel.jsx/Caroussel";
 import Voiture from "./components/voiture/Voiture";
+import Explore from "./components/Explore/Explore";
+import Schema from "./components/Schema/Schema";
+import Live from "./components/Live/Live";
+
 
 const App = () => {
   const footerRef = useRef(null);
@@ -45,6 +49,9 @@ const App = () => {
 
       {/* Footer avec la ref pour scroll */}
       <div ref={footerRef}>
+        <Explore/>
+        <Schema />
+        <Live/>
         <Voiture/>
         <Footer />
       </div>
