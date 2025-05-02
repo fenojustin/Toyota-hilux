@@ -7,7 +7,7 @@ const Contact = () => {
         <Layout>
             <div
                 data-aos="zoom-in"
-                className="container mx-auto py-16 px-4 lg:px-8 max-w-screen-xl grid grid-cols-1 lg:grid-cols-2 gap-10"
+                className="container py-16 max-w-screen-xl grid grid-cols-1 lg:grid-cols-2 gap-10"
                 id="#"
             >
                 {/* Texte à gauche */}
@@ -23,11 +23,13 @@ const Contact = () => {
                             on performance
                         </h1>
                     </div>
-                    <img
-                        src={carImage}
-                        alt="Voiture"
-                        className="w-full max-w-[600px]  h-auto object-cover rounded-xl shadow-lg"
-                    />
+                    <div className="w-full -ml-4 lg:-ml-8">
+                        <img
+                            src={carImage}
+                            alt="Voiture"
+                            className="w-full max-w-[600px] h-auto object-cover rounded-r-xl shadow-lg"
+                        />
+                    </div>
                 </div>
 
                 {/* Texte à droite */}
