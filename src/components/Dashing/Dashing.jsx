@@ -27,7 +27,7 @@ const Dashing = () => {
                         <img
                             src={Image1}
                             alt="4x4 véhicule"
-                            className="w-full right-0  h-auto rounded-xl object-cover shadow-xl" data-aos="fade-left"
+                            className="w-full right-1  h-auto rounded-xl object-cover shadow-xl" data-aos="fade-left"
                         />
                     </div>
                 </div>

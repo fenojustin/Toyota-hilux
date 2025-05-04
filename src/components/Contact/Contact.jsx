@@ -4,14 +4,15 @@ import Layout from '../Layout';
 
 const Contact = () => {
     return (
-        <Layout>
+       <Layout>
+        
             <div
                 data-aos="zoom-in"
                 className="container py-16 max-w-screen-xl grid grid-cols-1 lg:grid-cols-2 gap-10"
                 id="#"
             >
                 {/* Texte à gauche */}
-                <div className="flex flex-col justify-center space-y-6">
+                <div className="flex flex-col  justify-center space-y-6">
                     <div>
                         <h1 className="text-xl text-amber-500 uppercase font-bold">
                             High-quality all-terrain
@@ -27,7 +28,7 @@ const Contact = () => {
                         <img
                             src={carImage}
                             alt="Voiture"
-                            className="w-full max-w-[600px] h-auto object-cover rounded-r-xl shadow-lg"
+                            className="w-full max-w-[600px] "
                         />
                     </div>
                 </div>
