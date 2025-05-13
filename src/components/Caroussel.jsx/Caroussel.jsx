@@ -7,7 +7,7 @@ import Layout from '../Layout';
 const Section = () => {
     return (
         <Layout>
-            <div className="relative overflow-hidden bg-yellow-800 py-10">
+            <div className="relative overflow-hidden bg-black py-10">
                 <div className="flex flex-row max-w-7xl mx-auto h-[500px]">
                     {/* Image 1 */}
                     <div className="w-1/3 flex-shrink-0">
