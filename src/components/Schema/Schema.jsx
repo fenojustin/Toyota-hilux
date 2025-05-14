@@ -70,87 +70,87 @@ const customSlideStyles = `
 `;
 
 const Schema = () => {
-    const [windowHeight, setWindowHeight] = useState(0);
-    const [currentIndex, setCurrentIndex] = useState(0);
+  const [windowHeight, setWindowHeight] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-    // Configuration pour le slideshow
-    const fadeProperties = {
-        duration: 3000,
-        transitionDuration: 1000,
-        infinite: true,
-        indicators: (i) => {
-            return (
-                <div
-                    className={`indicator ${currentIndex === i ? 'active' : ''}`}
-                />
-            );
-        },
-        onChange: (oldIndex, newIndex) => {
-            setCurrentIndex(newIndex);
-        },
-        arrows: true,
-        pauseOnHover: true
+  // Configuration pour le slideshow
+  const fadeProperties = {
+    duration: 3000,
+    transitionDuration: 1000,
+    infinite: true,
+    indicators: (i) => {
+      return (
+        <div
+          className={`indicator ${currentIndex === i ? 'active' : ''}`}
+        />
+      );
+    },
+    onChange: (oldIndex, newIndex) => {
+      setCurrentIndex(newIndex);
+    },
+    arrows: true,
+    pauseOnHover: true
+  };
+
+  // Ajuster la hauteur du slideshow selon la taille de l'écran
+  useEffect(() => {
+    const handleResize = () => {
+      // Calculer la hauteur disponible
+      const navbarHeight = 80; // Ajustez selon votre navigation
+      const availableHeight = window.innerHeight - navbarHeight;
+      setWindowHeight(availableHeight);
     };
 
-    // Ajuster la hauteur du slideshow selon la taille de l'écran
-    useEffect(() => {
-        const handleResize = () => {
-            // Calculer la hauteur disponible
-            const navbarHeight = 80; // Ajustez selon votre navigation
-            const availableHeight = window.innerHeight - navbarHeight;
-            setWindowHeight(availableHeight);
-        };
+    // Initialiser et mettre en place les écouteurs
+    handleResize();
+    window.addEventListener('resize', handleResize);
 
-        // Initialiser et mettre en place les écouteurs
-        handleResize();
-        window.addEventListener('resize', handleResize);
+    // Nettoyage
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
-        // Nettoyage
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
+  const images = [Img1]; // Ajoutez d'autres images à ce tableau quand nécessaire
 
-    const images = [Img1]; // Ajoutez d'autres images à ce tableau quand nécessaire
+  return (
+    <Layout>
+      {/* Injecter les styles CSS personnalisés */}
+      <style dangerouslySetInnerHTML={{ __html: customSlideStyles }} />
 
-    return (
-        <Layout>
-            {/* Injecter les styles CSS personnalisés */}
-            <style dangerouslySetInnerHTML={{ __html: customSlideStyles }} />
-
-            <div className="w-full bg-black">
-                <div
-                    className="slide-container w-full"
-                    style={{ height: `${windowHeight}px` }}
-                >
-                    <Fade {...fadeProperties}>
-                        {images.map((img, index) => (
-                            <div key={index} className="each-slide">
-                                <div className="w-full h-full">
-                                    <img
-                                        src={img}
-                                        alt={`Slide ${index + 1}`}
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                            </div>
-                        ))}
-                    </Fade>
-
-                    {/* Indicateurs personnalisés */}
-                    <div className="indicators">
-                        {images.map((_, idx) => (
-                            <div
-                                key={idx}
-                                className={`indicator ${currentIndex === idx ? 'active' : ''}`}
-                                onClick={() => setCurrentIndex(idx)}
-                            />
-                        ))}
-                    </div>
+      <div className="w-full bg-black">
+        <div
+          className="slide-container w-full"
+          style={{ height: `${windowHeight}px` }}
+        >
+          <Fade {...fadeProperties}>
+            {images.map((img, index) => (
+              <div key={index} className="each-slide">
+                <div className="w-full h-full">
+                  <img
+                    src={img}
+                    alt={`Slide ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-            </div>
-        </Layout>
-    );
+              </div>
+            ))}
+          </Fade>
+
+          {/* Indicateurs personnalisés */}
+          <div className="indicators">
+            {images.map((_, idx) => (
+              <div
+                key={idx}
+                className={`indicator ${currentIndex === idx ? 'active' : ''}`}
+                onClick={() => setCurrentIndex(idx)}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </Layout>
+  );
 };
 
 export default Schema;
