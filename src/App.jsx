@@ -26,9 +26,7 @@ const App = () => {
     AOS.refresh();
   }, []);
 
-  const scrollToFooter = () => {
-    footerRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+
 
   return (
     <div>

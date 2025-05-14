@@ -1,87 +1,104 @@
 import React, { useEffect, useState } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import { Fade, Zoom, Slide } from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css';
 
 import Img1 from '../../assets/images/hhh.png';
-/* import Img2 from '../../assets/images/Mask Group (1).png';
-import Img3 from '../../assets/images/image 2.png'; */ // ajoute autant d'images que tu veux
+// import Img2 from '../../assets/images/Mask Group (1).png';
+// import Img3 from '../../assets/images/image 2.png'; // ajoutez autant d'images que vous voulez
 import Layout from '../Layout';
 
-// Ajout CSS personnalisé pour éliminer les espaces indésirables
-const customSliderStyles = `
-  .slick-slider, .slick-list, .slick-track {
+// Styles personnalisés pour le slideshow
+const customSlideStyles = `
+  .react-slideshow-container {
     height: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
   }
   
-  .slick-slide {
-    height: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-  }
-  
-  .slick-slide > div {
+  .react-slideshow-wrapper, .react-slideshow-fade-wrapper, .react-slideshow-fade-images-wrap {
     height: 100% !important;
   }
   
-  .slick-dots {
-    bottom: 15px !important;
+  .react-slideshow-container .nav {
     z-index: 10;
   }
   
-  .carousel-container {
+  .react-slideshow-container .default-nav {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin: 0 10px;
+  }
+  
+  .indicators {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+  }
+  
+  .indicator {
+    cursor: pointer;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 5px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+  }
+  
+  .indicator.active {
+    background: white;
+  }
+  
+  .slide-container {
     display: block !important;
     position: relative !important;
     overflow: hidden !important;
+    height: 100%;
+  }
+  
+  .each-slide {
+    height: 100% !important;
+  }
+  
+  .each-slide > div {
+    height: 100% !important;
   }
 `;
 
 const Schema = () => {
     const [windowHeight, setWindowHeight] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-    // Configuration plus avancée pour le carrousel
-    const settings = {
-        dots: true,
+    // Configuration pour le slideshow
+    const fadeProperties = {
+        duration: 3000,
+        transitionDuration: 1000,
         infinite: true,
-        speed: 1000,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
+        indicators: (i) => {
+            return (
+                <div
+                    className={`indicator ${currentIndex === i ? 'active' : ''}`}
+                />
+            );
+        },
+        onChange: (oldIndex, newIndex) => {
+            setCurrentIndex(newIndex);
+        },
         arrows: true,
-        fade: true, // Transition par fondu au lieu de défilement
-        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)', // Animation fluide
-        lazyLoad: 'progressive',
-        pauseOnHover: true,
-        adaptiveHeight: false, // Important: désactive l'adaptation automatique de hauteur
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    arrows: false, // Cacher les flèches sur mobile
-                    dots: true // Garder les points de navigation sur mobile
-                }
-            }
-        ]
+        pauseOnHover: true
     };
 
-    // Ajuster la hauteur du carrousel selon la taille de l'écran
+    // Ajuster la hauteur du slideshow selon la taille de l'écran
     useEffect(() => {
         const handleResize = () => {
-            // Calculer la hauteur disponible (peut être ajustée selon votre maquette)
+            // Calculer la hauteur disponible
             const navbarHeight = 80; // Ajustez selon votre navigation
             const availableHeight = window.innerHeight - navbarHeight;
             setWindowHeight(availableHeight);
-
-            // Force la mise à jour des slides slick si nécessaire
-            const slider = document.querySelector('.slick-slider');
-            if (slider) {
-                // Trigger resize event sur le slider pour forcer sa mise à jour
-                window.dispatchEvent(new Event('resize'));
-            }
         };
 
         // Initialiser et mettre en place les écouteurs
@@ -99,27 +116,37 @@ const Schema = () => {
     return (
         <Layout>
             {/* Injecter les styles CSS personnalisés */}
-            <style dangerouslySetInnerHTML={{ __html: customSliderStyles }} />
+            <style dangerouslySetInnerHTML={{ __html: customSlideStyles }} />
 
             <div className="w-full bg-black">
                 <div
-                    id="carousel-container"
-                    className="carousel-container w-full"
+                    className="slide-container w-full"
                     style={{ height: `${windowHeight}px` }}
                 >
-                    <Slider {...settings}>
-                        {images.map((img, idx) => (
-                            <div key={idx}>
+                    <Fade {...fadeProperties}>
+                        {images.map((img, index) => (
+                            <div key={index} className="each-slide">
                                 <div className="w-full h-full">
                                     <img
                                         src={img}
-                                        alt={`Slide ${idx + 1}`}
+                                        alt={`Slide ${index + 1}`}
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
                             </div>
                         ))}
-                    </Slider>
+                    </Fade>
+
+                    {/* Indicateurs personnalisés */}
+                    <div className="indicators">
+                        {images.map((_, idx) => (
+                            <div
+                                key={idx}
+                                className={`indicator ${currentIndex === idx ? 'active' : ''}`}
+                                onClick={() => setCurrentIndex(idx)}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </Layout>
