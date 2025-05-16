@@ -12,7 +12,7 @@ const Contact = () => {
                 id="#"
             >
                 {/* Texte à gauche */}
-                <div className="flex flex-col  justify-center space-y-6">
+                <div className="flex flex-col  justify-center space-y-6 ">
                     <div>
                         <h1 className="text-xl text-amber-500 uppercase font-bold">
                             High-quality all-terrain
@@ -24,7 +24,7 @@ const Contact = () => {
                             on performance
                         </h1>
                     </div>
-                    <div className="w-full -ml-4 lg:-ml-8">
+                    <div className="w-full -ml-0 lg:-ml-28">
                         <img
                             src={carImage}
                             alt="Voiture"
