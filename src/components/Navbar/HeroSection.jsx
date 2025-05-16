@@ -35,8 +35,11 @@ const HeroSection = () => {
             </div>
 
             {/* Nom de voiture (ex. Toyota Hilux) */}
-            <div className="absolute bottom-5 right-10 text-sm text-gray-300 uppercase tracking-wide z-10">
-                Toyota Hilux
+
+
+            <div className="absolute bottom-5 right-10 text-sm text-gray-300 uppercase tracking-wide z-10 flex flex-col items-center">
+                <div className="h-0.5 w-16 bg-orange-500 mb-8"></div>
+                TOYOTA HILUX
             </div>
         </div>
     )
