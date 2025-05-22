@@ -30,8 +30,8 @@ const Navbar = () => {
             {/* upper navbar */}
             <div className='fixed top-0 w-full py-4  dark:bg-gray-900 z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl'>
                 <div className='flex justify-between items-center'>
-                    <div className='text-white'>
-                        <div href="#" className='flex items-center  text-2xl sm:text-3xl font-semibold'>VENEGUO</div>
+                    <div className='text-gray-300'>
+                        <div href="#" className='flex items-center  text-2xl sm:text-3xl font-semibold'>VENEGUOO</div>
                     </div>
 
                     {/* Mobile menu button */}
